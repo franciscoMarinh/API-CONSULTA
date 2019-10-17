@@ -3,28 +3,28 @@ module.exports = app => {
     return{
         findAll: async (req,res) => {
             try {
-                let users = await app.db.users.findAll({})
-                res.json(users)
+                let tasks = await app.db.tasks.findAll({})
+                res.json(tasks)
             } catch (error) {
                 res.sendStatus(400)
             }
         },
         findOne: async (req,res) => {
             try {
-                let user = await app.db.users.findByPk(req.params.id)
-                res.json(user)
+                let task = await app.db.tasks.findByPk(req.params.id)
+                res.json(task)
 
             } catch (error) {
                 res.sendStatus(400)
             }
         },
-        findAllTasks: async (req,res) => {
+        findAllUsers: async (req,res) => {
             try {
-                let user = await app.db.users.findByPk(req.params.id)
-                let tasks = await user.getTasks({
+                let task = await app.db.tasks.findByPk(req.params.id)
+                let users = await task.getUsers({
                     
                 })
-                res.json(tasks)
+                res.json(users)
 
             } catch (error) {
                 res.sendStatus(error)
