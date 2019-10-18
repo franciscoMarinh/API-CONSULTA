@@ -7,6 +7,6 @@ module.exports = app => {
         .get(app.controller.tasks.findOne)
 
     app.route("/tasks/:id/users")
-        .get(app.controller.tasks.findAllUsers)
-
+        .get(app.controller.tasks.findTaskUsers)
+        
 }

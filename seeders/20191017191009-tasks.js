@@ -10,6 +10,9 @@ module.exports = {
         {
           title: 'Ir a aula Hoje'
         },
+        {
+          title: 'Dormir muito Hoje'
+        },
       ], 
     {});
   

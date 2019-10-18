@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
     tasks.belongsToMany(models.users,{
       through: "userstasks",
       foreignKey: "taskId",
-      
+     
     })
   };
   return tasks;

@@ -18,17 +18,27 @@ module.exports = app => {
                 res.sendStatus(400)
             }
         },
-        findAllUsers: async (req,res) => {
+        findTaskUsers: async (req,res) => { //Not Used But Good example
+
             try {
-                let task = await app.db.tasks.findByPk(req.params.id)
-                let users = await task.getUsers({
-                    
+                let task = await app.db.tasks.findOne({
+                    where: {
+                        id: req.params.id
+                    },
+                    attributes: [],
+                    include: [{
+                        model: app.db.users,
+                        through: {
+                            attributes: []
+                        }
+                    }]
                 })
-                res.json(users)
+                res.json(task)
 
             } catch (error) {
-                res.sendStatus(error)
+                res.sendStatus(400)
             }
-        },
+
+        }
     }//Close return
 }//Close consign export

@@ -29,10 +29,10 @@ module.exports = app => {
                 res.sendStatus(400)
             }
         },
-        addUsers: async (req,res) => {
+        createUser: async (req,res) => {
             try {
                 let team = await app.db.teams.findByPk(req.params.id)
-                let teamUsers = await team.setUsers(req.params)
+                let teamUsers = await team.createUser(req.body)
                 res.json(teamUsers)
 
             } catch (error) {

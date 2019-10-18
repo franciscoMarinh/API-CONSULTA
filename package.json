@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "SET NODE_ENV=test&&npx mocha",
     "start": "nodemon app"
   },
   "keywords": [],
@@ -13,13 +13,17 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "consign": "^0.1.6",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "mariadb": "^2.1.2",
     "mysql2": "^1.7.0",
     "sequelize": "^5.19.8"
   },
   "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.2.1",
     "nodemon": "^1.19.4",
-    "sequelize-cli": "^5.5.1"
+    "sequelize-cli": "^5.5.1",
+    "supertest": "^4.0.2"
   }
 }

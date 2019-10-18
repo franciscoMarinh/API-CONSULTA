@@ -8,5 +8,5 @@ module.exports = app => {
 
     app.route('/teams/:id/users')
         .get(app.controller.teams.findTeamUsers)
-        .post(app.controller.teams.addUsers) //Não testei
+        .post(app.controller.teams.createUser) 
 }

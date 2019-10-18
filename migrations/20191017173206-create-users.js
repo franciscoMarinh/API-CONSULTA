@@ -30,7 +30,8 @@ module.exports = {
         references: {
           model: "teams",
           key: 'id',
-        }
+        },
+        onDelete: "cascade"
       },
     });
   },
