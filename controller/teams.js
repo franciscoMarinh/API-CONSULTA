@@ -1,5 +1,6 @@
-module.exports = app => {
+const { validationResult } = require('express-validator')
 
+module.exports = app => {
     return{
         findAll: async (req,res) => {
             try {
@@ -38,6 +39,14 @@ module.exports = app => {
             } catch (error) {
                 res.sendStatus(400)
             }
+        },
+        validator: (req, res,next) => {
+            const errors = validationResult(req);
+            if (!errors.isEmpty()) {
+              return res.status(422).json({ errors: errors.array() });
+            }
+            next()
+            
         }
     }//Close return
 

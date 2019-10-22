@@ -1,3 +1,5 @@
+const { check } = require('express-validator')
+
 module.exports = app => {
 
     app.route('/teams')
@@ -8,5 +10,8 @@ module.exports = app => {
 
     app.route('/teams/:id/users')
         .get(app.controller.teams.findTeamUsers)
-        .post(app.controller.teams.createUser) 
+        .post([
+            check('email').isEmail()
+        ],app.controller.teams.validator,app.controller.teams.createUser) 
+    
 }
